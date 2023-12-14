@@ -1,0 +1,86 @@
+<%- include('./partials/header.ejs') %>
+
+<main class="container">
+
+        <form class="createForm" action="/admin/create" method="POST" enctype="multipart/form-data">
+            <h3 class="createForm__title">CREAR NUEVO ITEM</h3>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <label class="createForm__label" for="category">Categoría:</label>
+
+                    <select class="createForm__select form-select" name="category" id="category" placeholder="Seleccionar" required>
+                        <option value="" disabled selected hidden>Seleccionar</option>
+                        <% itemsCategoria.forEach((item, i) => { %>
+                            <option value="<%= i+1 %>"><%= item.category_name %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <label class="createForm__label" for="licence">Licencia:</label>
+
+                    <select class="createForm__select form-select" name="licence" id="licence" placeholder="Seleccionar" required>
+                        <option value="" disabled selected hidden>Seleccionar</option>
+                        <% itemsLicences.forEach((item, i) => { %>
+                            <option value="<%= i+1 %>"><%= item.licence_name %></option>
+                        <% }); %>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row py-3">
+                <div class="col-12">
+                    <label class="createForm__label" for="name">Nombre del producto:</label>
+                    <input class="createForm_input" type="text" name="name" id="name" placeholder="nombre del producto" required>
+                </div>
+            </div>
+
+
+          <div class="row py-3">
+              <div class="col-12">
+                  <textarea class="form-control" name="description" id="description" placeholder="Descripción del producto" required></textarea>
+              </div>
+          </div>
+          <div class="row py-3">
+              <div class="col-12 col-lg-4">
+                  <label class="createForm__label" for="SKU">SKU:</label>
+                  <input class="createForm_input p-0" type="text" name="sku" id="sku" placeholder="SSK111AB001" required>
+              </div>
+              <div class="col-12 col-lg-4">
+                  <label class="createForm__label" for="price">Precio:</label>
+                  <input class="createForm_input p-0" type="text" name="price" id="price" placeholder="$ 0.000,00" required>
+              </div>
+              <div class="col-12 col-lg-4">
+                  <label class="createForm__label" for="stock">Stock:</label>
+                  <input class="createForm_input p-0" type="text" name="stock" id="stock" placeholder="0" required>
+              </div>
+          </div>
+          <div class="row pt-2">
+              <div class="col-12 col-lg-6">
+                  <label class="createForm__label" for="discount">Descuento:</label>
+                  <input class="createForm_input" type="text" name="discount" id="discount" placeholder="0%" required>
+              </div>
+              <div class="col-12 col-lg-6">
+                  <label class="createForm__label" for="dues">Cuotas:</label>
+                  <select class="createForm__select " name="dues" id="dues" required>
+                      <option value="1">1 pago</option>
+                      <option value="3">3 Cuotas sin interés</option>
+                      <option value="6">6 cuotas</option>
+                      <option value="12">12 cuotas</option>
+                  </select>
+              </div>
+          </div>
+            <div class="row py-3">
+                <div class="col-12">
+                    <label class="createForm__label" for="images">Imágenes:</label>
+                    <input class="createForm__insertFiles" type="file" name="images" id="images" accept="image/*" multiple>
+                </div>
+            </div>
+            <div class="createForm__buttons py-3">
+                <input type="submit" class="createForm__submitButton" value="Agregar Producto">
+                <input type="reset" class="createForm__clearButton" value="Limpiar">
+            </div>
+        </form>
+
+        </main>
+
+<%- include('./partials/footer.ejs') %>
