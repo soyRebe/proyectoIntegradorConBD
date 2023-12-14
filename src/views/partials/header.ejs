@@ -38,13 +38,28 @@
                     <a class="navbar__link" href="/">CONTACTO</a>
                 </li>
                 <li class="navbar__item">
+                    <a class="navbar__link" href="/shop">VER TIENDA</a>
+                </li>
+                <% if (locals.isLogged) { %>
+                    <li class="navbar__item">
+                        <a class="navbar_cart" href="../shop/cart">
+                            <img src="../assets/img/icons/cart-icon.svg" alt="carrito de compra" />
+                        </a>
+                    </li>
+
+
+                            <li class="navbar__item">
+                                <a class="navbar__link" href="/admin">ADMIN</a></li>
+                            <li class="navbar__item">
+                                <a class="navbar__link" href="/auth/logout">SALIR</a></li> <!-- qué va acá?-->
+
+
+                <% } else { %>
+                <li class="navbar__item">
                     <a class="navbar__link" href="/auth/login">LOGIN</a>
                 </li>
-                <li class="navbar__item">
-                    <a class="navbar_cart" href="../shop/cart">
-                        <img src="../assets/img/icons/cart-icon.svg" alt="carrito de compra" />
-                    </a>
-                </li>
+
+                <% } %>
             </ul>
         </nav>
     </header>
