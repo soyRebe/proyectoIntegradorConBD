@@ -29,7 +29,7 @@
     /* pagination */
 
     --bs-link-color: var(--primary-solid);
-    --bs-link-hover-color: var(--primary-500);
+    --bs-link-hover-color: var(--light-bg-solid);
     --bs-pagination-border-width: var(--primary-solid)!important;
     --bs-pagination-border-color: var(--primary-solid)!important;
     --bs-pagination-active-bg: var(--primary-500);
@@ -116,7 +116,7 @@ p {
 
   .btn-primary {
     --bs-btn-font-weight: 600;
-    --bs-btn-color: var(--bs-white);
+    --bs-btn-color: var(--light-bg-solid);
     --bs-btn-bg: var(--bs-primary);
     --bs-btn-border-color: var(--bs-primary);
     --bs-btn-hover-color: var(--bs-primary);
@@ -128,8 +128,10 @@ p {
     --bs-btn-active-border-color:var(--bs-primary, 20%);
   
 }
-  
 
+.btn:hover{
+    color: #ffff!important;
+}
 .iconify-icon {
     color: var(--dark-bg-solid);
     font-size: var(--font-small);
@@ -491,7 +493,7 @@ header {
    
 .form_login__data {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: var(--spacing-24);
     align-items: center;
 }

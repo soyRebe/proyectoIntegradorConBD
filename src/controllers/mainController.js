@@ -120,27 +120,8 @@ const mainController = {
         res.send('Route for post cart view');
     },
 
-   login:( req, res )=> {
-        res.render('login', {
-            title: 'Login | FunkoShop'
-        });
-       // res.sendFile(path.resolve(__dirname, '..' , 'pages', 'login.html' )); 
-    },
 
-    postLogin:( req, res )=> {
-        res.send('route for login');
-    },
-    getRegister:( req, res )=> {
-        res.render('register', {
-            title: 'Registro | FunkoShop'
-        });
-    },
-    postRegister:( req, res )=> {
-        res.send('route for post register');
-    },
-    logout:( req, res )=> {
-        res.render('login');
-    },
+
 
     admin:( req, res )=> {
         const message = req.query.create || '';
@@ -214,5 +195,6 @@ const mainController = {
 
 
 }
+
 
 module.exports = mainController;

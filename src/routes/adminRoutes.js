@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const mainController = require('../controllers/mainController');
 const uploadFiles = require('../middleware/uploadFiles');
+const { isLogged } = require('../middleware/login');
+const authService = require('../service/authService')
+
 
 router.get('/', mainController.admin);
 

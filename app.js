@@ -12,23 +12,37 @@ const authRoutes = require('./src/routes/authRoutes');
 const {notFound} = require('./src/utils/errorsHandler');
 const e = require('express');
 const { dirname } = require('path');
+const { initSession } = require('./src/utils/session');
+const session = require('express-session');
 require('dotenv').config();
 /* puerto de la aplicacion */
 const PORT = process.env.PORT;
 
 /* template engine */
-app.set('view engine', 'ejs'),
+app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "./src/views"));
 
 /* define una carpeta de archivos estaticos */
 
 app.use(express.static('public')); // use es un middleware 
 
+/* Creación de la sesión de usuario */
+app.use(initSession());
+
+
+/* Locals para indicar que el usuario inició sesión */
+app.use((req, res, next) => {
+    res.locals.isLogged = req.session.isLogged;
+    next();
+
+});
 
 /* parsea los datos recibido del post */
 app.use(express.urlencoded());
 app.use(express.json());
 app.use(methodOverride('_method'));
+
+
 
 /* middleware a las rutas */
 app.use('/', mainRoutes);

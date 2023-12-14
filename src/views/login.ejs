@@ -1,24 +1,27 @@
 <%- include('./partials/header.ejs') %>
     <main class="container">
         <section class="form_login">
-            <h4 class="form_login__title text-uppercase fw-bold">Crea tu cuenta</h4>
+            <h4 class="form_login__title text-uppercase fw-bold">Ingresá a tu cuenta</h4>
             <p class="form_login__text">Completa el formulario para ser parte del mundo de los Funkos</p>
-             <form class="" action="/login" method="post">
+             <form class="" action="/auth/login" method="post">
                 <section class="form_login__container">
                     <div class="form_login__data">
-                        <label class="form_login__label">Email:</label>
+                        <label class="form_login__label" for="email">Email:</label>
                         <input class="form_login__input" type="email" name="email" placeholder="Email" />
                     </div>
                     <div class="form_login__data">
-                        <label class="form_login__label">Contraseña:</label>
-                        <input class="form_login__input" type="password" name="password"placeholder="" />
+                        <label class="form_login__label" for="password">Contraseña:</label>
+                        <input minlength="6" class="form_login__input" type="password" name="password" placeholder="" />
                     </div>
                     <div class="form_login__data">
-                        <a class="form_login__data__link">Ingresar</a>
+                        <button class="form_login__data__link btn btn-primary border-0">Ingresar</button>
                         <div>                        
-                            <input class="form_login__input check" type="checkbox" placeholder="" />
-                            <label class="form_login__label_checkbox "><span class="form_login__span">Acepto</span> términos y condiciones</label>
+                            <input class="form_login__input check" type="checkbox" placeholder=""  name="remember" id="remember"/>
+                            <label class="form_login__label_checkbox "><span class="form_login__span">Recordarme</span></label>
                         </div>
+                    </div>
+                    <div class="form_login__data">
+                        <h5 class="form_login__label_checkbox"><a href="/">Olvidé mi contraseña</a></h5>
                     </div>
                 </section>
             </form>
